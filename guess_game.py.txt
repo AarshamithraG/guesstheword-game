@@ -1,0 +1,29 @@
+import random
+
+print("🎲 Welcome to 'Guess the Word: Chaos Mode'!")
+print("Try to guess the hidden word. You only get 5 tries!\n")
+
+# List of secret words
+words = ["planet", "python", "future", "banana", "rocket"]
+secret_word = random.choice(words)
+attempts = 5
+
+while attempts > 0:
+    guess = input("Your guess: ").lower()
+
+    if guess == secret_word:
+        print("Correct! You guessed the word:", secret_word)
+        break
+    else:
+        attempts -= 1
+        print("Wrong! Tries left:", attempts)
+
+        # Funny twist
+        print("Funny event:", random.choice([
+            "Oops! A cat just walked over your keyboard!",
+            "Whoa! Your brain did a flip!",
+            "Uh-oh! Someone shouted a random word nearby!",
+        ]))
+
+if attempts == 0:
+    print("Out of tries! The word was:", secret_word)
